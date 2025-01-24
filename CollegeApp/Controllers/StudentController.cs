@@ -1,5 +1,6 @@
 ﻿using CollegeApp.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
@@ -69,7 +70,7 @@ namespace CollegeApp.Controllers
             return Ok(studentDTO);
         }
 
-        [HttpDelete("{id}", Name = "deleteStudentById")]
+        [HttpDelete("Delete/{id}", Name = "deleteStudentById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -147,6 +148,62 @@ namespace CollegeApp.Controllers
             CollegeRepository.Students.Add(student);
             model.id = student.id;
             return CreatedAtRoute("getStudentById", new { model.id }, model);
+        }
+
+        [HttpPut]
+        [Route("Update")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult UpdateStudent([FromBody] StudentDTO model)
+        {
+            if (!ModelState.IsValid || model == null)
+                return BadRequest(ModelState);
+
+            var student = CollegeRepository.Students.Where(n => n.id == model.id).FirstOrDefault();
+            
+            if (student == null)
+                return NotFound($"The student with id {model.id} not found");
+            
+            student.StudentName = model.StudentName;
+            student.Address = model.Address;
+            student.Email = model.Email;
+            return Ok(model);
+        }
+
+        [HttpPatch]
+        [Route("{id:int}/UpdatePartial")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult UpdateStudentPartial(int id, [FromBody] JsonPatchDocument<StudentDTO> patchDocument)
+        {
+            if (!ModelState.IsValid || patchDocument == null || id <= 0)
+                return BadRequest(ModelState);
+
+            var student = CollegeRepository.Students.Where(n => n.id == id).FirstOrDefault();
+
+            if (student == null)
+                return NotFound($"The student with id {id} not found");
+
+            var studentDTO = new StudentDTO
+            {
+                id = student.id,
+                StudentName = student.StudentName,
+                Address = student.Address,
+                Email = student.Email
+            };
+            patchDocument.ApplyTo(studentDTO, ModelState);
+            if (!ModelState.IsValid) 
+                return BadRequest();
+
+            student.StudentName = studentDTO.StudentName;
+            student.Address = studentDTO.Address;
+            student.Email = studentDTO.Email;
+
+            return NoContent();
         }
     }
 }
