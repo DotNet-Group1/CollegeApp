@@ -127,6 +127,15 @@ namespace CollegeApp.Controllers
         { 
             if (!ModelState.IsValid || model == null) 
                 return BadRequest(ModelState);
+            
+            //if(model.AdmissionDate < DateTime.Now)
+            //{
+            //    //1. Directly adding error message to model state
+            //    //2.  Using custom attribute to add error message
+            //    ModelState.AddModelError("AdmissionDate", "Admission date should be greater than current date");
+            //    return BadRequest(ModelState);
+            //}
+
             int newId = CollegeRepository.Students.LastOrDefault().id + 1;
             Student student = new Student
             {
