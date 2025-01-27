@@ -9,10 +9,24 @@ namespace CollegeApp.Controllers
     public class DemoController : ControllerBase
     {
         //1. Strongly Typed/ tightly coupled
+        //private readonly IMyLogger _myLogger;
+        //public DemoController()
+        //{
+        //    _myLogger = new LogToDB();
+        //}
+
+        //[HttpGet]
+        //public ActionResult Index()
+        //{
+        //    _myLogger.Log("Index method started");
+        //    return Ok();
+        //}
+
+        //2. Loosely coupled/ loosely typed
         private readonly IMyLogger _myLogger;
-        public DemoController()
+        public DemoController(IMyLogger myLogger)
         {
-            _myLogger = new LogToDB();
+            _myLogger = myLogger;
         }
 
         [HttpGet]

@@ -1,4 +1,5 @@
 ﻿using CollegeApp.Models;
+using CollegeApp.MyLogging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,11 @@ namespace CollegeApp.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        private readonly IMyLogger _myLogger;
+        public StudentController(IMyLogger myLogger)
+        {
+            _myLogger = myLogger;
+        }
         [HttpGet]
         [Route("All", Name = "getAllStudents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
