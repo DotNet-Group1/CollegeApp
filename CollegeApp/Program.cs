@@ -9,6 +9,8 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IMyLogger, LogToServerMemory>();
+builder.Services.AddSingleton<IMyLogger, LogToServerMemory>();
+builder.Services.AddTransient<IMyLogger, LogToServerMemory>();
 
 var app = builder.Build();
 
