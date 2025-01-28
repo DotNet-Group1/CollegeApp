@@ -1,9 +1,9 @@
 using CollegeApp.MyLogging;
 
 var builder = WebApplication.CreateBuilder(args);
-//builder.Logging.ClearProviders();  //clear all default logging information
-//builder.Logging.AddDebug();
-//builder.Logging.AddConsole();
+builder.Logging.ClearProviders();  //clear all default logging information
+builder.Logging.AddDebug();
+builder.Logging.AddConsole();
 //builder.Logging.AddEventSourceLogger();
 //builder.Logging.AddEventLog();
 // Add services to the container.
