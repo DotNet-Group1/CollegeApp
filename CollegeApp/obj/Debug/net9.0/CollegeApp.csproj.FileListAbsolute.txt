@@ -39,3 +39,13 @@ D:\Web Api\CollegeApp-repo\CollegeApp\obj\Debug\net9.0\refint\CollegeApp.dll
 D:\Web Api\CollegeApp-repo\CollegeApp\obj\Debug\net9.0\CollegeApp.pdb
 D:\Web Api\CollegeApp-repo\CollegeApp\obj\Debug\net9.0\CollegeApp.genruntimeconfig.cache
 D:\Web Api\CollegeApp-repo\CollegeApp\obj\Debug\net9.0\ref\CollegeApp.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.AspNetCore.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+D:\Web Api\CollegeApp-repo\CollegeApp\bin\Debug\net9.0\Serilog.Sinks.File.dll

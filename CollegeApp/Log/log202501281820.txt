@@ -1,0 +1,11 @@
+2025-01-28 18:20:54.584 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/api/Demo - null null
+2025-01-28 18:20:54.616 +05:30 [INF] Executing endpoint 'CollegeApp.Controllers.DemoController.Index (CollegeApp)'
+2025-01-28 18:20:54.645 +05:30 [INF] Route matched with {action = "Index", controller = "Demo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller CollegeApp.Controllers.DemoController (CollegeApp).
+2025-01-28 18:20:54.652 +05:30 [INF] Log message from Information method
+2025-01-28 18:20:54.663 +05:30 [WRN] Log message Warning method
+2025-01-28 18:20:54.666 +05:30 [ERR] Log message from Error method
+2025-01-28 18:20:54.670 +05:30 [FTL] Log message from Critical method
+2025-01-28 18:20:54.678 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-28 18:20:54.687 +05:30 [INF] Executed action CollegeApp.Controllers.DemoController.Index (CollegeApp) in 33.1061ms
+2025-01-28 18:20:54.687 +05:30 [INF] Executed endpoint 'CollegeApp.Controllers.DemoController.Index (CollegeApp)'
+2025-01-28 18:20:54.688 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/api/Demo - 200 0 null 103.8307ms

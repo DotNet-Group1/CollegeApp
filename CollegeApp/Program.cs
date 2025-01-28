@@ -1,12 +1,15 @@
 using CollegeApp.MyLogging;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Logging.ClearProviders();  //clear all default logging information
-builder.Logging.AddDebug();
-builder.Logging.AddConsole();
-//builder.Logging.AddEventSourceLogger();
-//builder.Logging.AddEventLog();
-// Add services to the container.
+
+Log.Logger = new LoggerConfiguration().
+    MinimumLevel.Information()
+    .WriteTo.File("Log/log.txt", rollingInterval: RollingInterval.Minute)
+    .CreateLogger();
+
+//builder.Host.UseSerilog(); // use this line to override the built-in loggers
+builder.Logging.AddSerilog(); // use serilog along with built-in loggers meaning that serilog and default log will work together
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

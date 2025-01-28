@@ -1,0 +1,35 @@
+2025-01-28 18:19:21.010 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/api/Demo - null null
+2025-01-28 18:19:21.041 +05:30 [INF] Executing endpoint 'CollegeApp.Controllers.DemoController.Index (CollegeApp)'
+2025-01-28 18:19:21.042 +05:30 [INF] Route matched with {action = "Index", controller = "Demo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller CollegeApp.Controllers.DemoController (CollegeApp).
+2025-01-28 18:19:21.043 +05:30 [INF] Log message from Information method
+2025-01-28 18:19:21.043 +05:30 [WRN] Log message Warning method
+2025-01-28 18:19:21.043 +05:30 [ERR] Log message from Error method
+2025-01-28 18:19:21.043 +05:30 [FTL] Log message from Critical method
+2025-01-28 18:19:21.043 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-28 18:19:21.043 +05:30 [INF] Executed action CollegeApp.Controllers.DemoController.Index (CollegeApp) in 0.3902ms
+2025-01-28 18:19:21.043 +05:30 [INF] Executed endpoint 'CollegeApp.Controllers.DemoController.Index (CollegeApp)'
+2025-01-28 18:19:21.043 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/api/Demo - 200 0 null 33.2936ms
+2025-01-28 18:19:23.517 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/api/Demo - null null
+2025-01-28 18:19:23.518 +05:30 [INF] Executing endpoint 'CollegeApp.Controllers.DemoController.Index (CollegeApp)'
+2025-01-28 18:19:23.518 +05:30 [INF] Route matched with {action = "Index", controller = "Demo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller CollegeApp.Controllers.DemoController (CollegeApp).
+2025-01-28 18:19:23.518 +05:30 [INF] Log message from Information method
+2025-01-28 18:19:23.518 +05:30 [WRN] Log message Warning method
+2025-01-28 18:19:23.519 +05:30 [ERR] Log message from Error method
+2025-01-28 18:19:23.519 +05:30 [FTL] Log message from Critical method
+2025-01-28 18:19:23.519 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-28 18:19:23.519 +05:30 [INF] Executed action CollegeApp.Controllers.DemoController.Index (CollegeApp) in 0.1414ms
+2025-01-28 18:19:23.519 +05:30 [INF] Executed endpoint 'CollegeApp.Controllers.DemoController.Index (CollegeApp)'
+2025-01-28 18:19:23.519 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/api/Demo - 200 0 null 1.8596ms
+2025-01-28 18:19:44.335 +05:30 [INF] Now listening on: https://localhost:7012
+2025-01-28 18:19:44.362 +05:30 [INF] Now listening on: http://localhost:5021
+2025-01-28 18:19:44.433 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-28 18:19:44.435 +05:30 [INF] Hosting environment: Development
+2025-01-28 18:19:44.437 +05:30 [INF] Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-28 18:19:44.990 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/swagger/index.html - null null
+2025-01-28 18:19:45.217 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/swagger/index.html - 200 null text/html;charset=utf-8 241.9499ms
+2025-01-28 18:19:45.217 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/_vs/browserLink - null null
+2025-01-28 18:19:45.217 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-28 18:19:45.224 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 6.8868ms
+2025-01-28 18:19:45.253 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.9183ms
+2025-01-28 18:19:45.425 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7012/swagger/v1/swagger.json - null null
+2025-01-28 18:19:45.454 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7012/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.6916ms
