@@ -1,0 +1,2 @@
+2025-01-29 13:46:12,378 [.NET TP Worker] ERROR CollegeApp.Controllers.DemoController - Log message from Error method
+2025-01-29 13:46:12,382 [.NET TP Worker] FATAL CollegeApp.Controllers.DemoController - Log message from Critical method

@@ -1,0 +1,5 @@
+2025-01-29 13:21:48,971 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
+2025-01-29 13:21:48,989 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
+2025-01-29 13:21:49,071 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-01-29 13:21:49,073 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-01-29 13:21:49,075 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
