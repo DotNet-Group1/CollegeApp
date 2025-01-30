@@ -48,32 +48,6 @@ namespace CollegeApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_Students");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "India",
-                            DOB = new DateTime(2022, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "jonh@gmail.com",
-                            StudentName = "John"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Delhi India",
-                            DOB = new DateTime(2020, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "amit@gmail.com",
-                            StudentName = "Amit"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "WB,India",
-                            DOB = new DateTime(2021, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "sumit@gmail.com",
-                            StudentName = "Sumit"
-                        });
                 });
 #pragma warning restore 612, 618
         }
