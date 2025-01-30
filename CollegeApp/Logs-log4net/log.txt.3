@@ -1,10 +1,17 @@
-2025-01-29 16:41:45,933 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
-2025-01-29 16:41:45,947 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
-2025-01-29 16:41:45,987 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2025-01-29 16:41:46,018 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2025-01-29 16:41:46,021 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
-2025-01-29 16:41:56,253 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
-2025-01-29 16:41:56,269 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
-2025-01-29 16:41:56,453 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2025-01-29 16:41:56,456 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2025-01-29 16:41:56,459 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-30 15:44:06,580 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (58ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-30 15:44:06,605 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250130101303_InitialDBSetup'.
+2025-01-30 15:44:06,749 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (116ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [tbl_Students] (
+    [Id] int NOT NULL IDENTITY,
+    [StudentName] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [DOB] datetime2 NOT NULL,
+    CONSTRAINT [PK_tbl_Students] PRIMARY KEY ([Id])
+);
+2025-01-30 15:44:06,817 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250130101303_InitialDBSetup', N'9.0.1');

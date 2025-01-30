@@ -1,20 +1,17 @@
-2025-01-29 16:40:57,453 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
-2025-01-29 16:40:57,473 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
-2025-01-29 16:40:57,589 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2025-01-29 16:40:57,592 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2025-01-29 16:40:57,594 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
-2025-01-29 16:41:05,055 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
-System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'CollegeApp.Controllers.StudentController'. There should only be one applicable constructor.
-   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
-   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
-   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
-   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
-   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.CreateActivator(ControllerActionDescriptor descriptor)
-   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.CreateControllerFactory(ControllerActionDescriptor descriptor)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
-   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
-   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
-   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-30 15:44:06,134 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-01-30 15:44:06,321 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-01-30 15:44:06,472 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2025-01-30 15:44:06,518 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');

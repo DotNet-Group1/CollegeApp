@@ -4,6 +4,7 @@ using CollegeApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CollegeApp.Migrations
 {
     [DbContext(typeof(CollegeDBContext))]
-    partial class CollegeDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250130101303_InitialDBSetup")]
+    partial class InitialDBSetup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,24 +51,6 @@ namespace CollegeApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_Students");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Mumbai",
-                            DOB = new DateTime(2023, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "jonh@gmail.com",
-                            StudentName = "John"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Kolkata",
-                            DOB = new DateTime(2022, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "amit@gmail.com",
-                            StudentName = "Amit"
-                        });
                 });
 #pragma warning restore 612, 618
         }

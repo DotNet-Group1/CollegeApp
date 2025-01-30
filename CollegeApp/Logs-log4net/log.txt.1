@@ -1,17 +1,17 @@
-2025-01-29 17:13:14,531 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
-BEGIN
-    CREATE TABLE [__EFMigrationsHistory] (
-        [MigrationId] nvarchar(150) NOT NULL,
-        [ProductVersion] nvarchar(32) NOT NULL,
-        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
-    );
-END;
-2025-01-29 17:13:14,672 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-01-30 15:45:47,259 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (54ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT 1
-2025-01-29 17:13:14,715 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (42ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-01-30 15:45:47,319 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
-2025-01-29 17:13:14,769 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (50ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-01-30 15:45:47,362 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (39ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT [MigrationId], [ProductVersion]
 FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
+2025-01-30 15:45:47,376 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250130101536_AddDataToStudentsTable'.
+2025-01-30 15:45:47,466 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (58ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DOB', N'Email', N'StudentName') AND [object_id] = OBJECT_ID(N'[tbl_Students]'))
+    SET IDENTITY_INSERT [tbl_Students] ON;
+INSERT INTO [tbl_Students] ([Id], [Address], [DOB], [Email], [StudentName])
+VALUES (1, N'Mumbai', '2023-12-12T00:00:00.0000000', N'jonh@gmail.com', N'John'),
+(2, N'Kolkata', '2022-11-12T00:00:00.0000000', N'amit@gmail.com', N'Amit');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DOB', N'Email', N'StudentName') AND [object_id] = OBJECT_ID(N'[tbl_Students]'))
+    SET IDENTITY_INSERT [tbl_Students] OFF;
