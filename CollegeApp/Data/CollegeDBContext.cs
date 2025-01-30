@@ -30,6 +30,13 @@ namespace CollegeApp.Data
                     DOB = new DateTime(2022, 11, 12)
                 }
             });
+
+            modelBuilder.Entity<Student>(entity =>
+            {
+                entity.Property(n => n.StudentName).IsRequired().HasMaxLength(250);
+                entity.Property(n => n.Email).HasMaxLength(250);
+                entity.Property(n => n.Address).IsRequired(false).HasMaxLength(500);
+            });
         }
 
     }

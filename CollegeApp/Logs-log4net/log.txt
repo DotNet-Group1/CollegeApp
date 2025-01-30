@@ -1,7 +1,15 @@
-2025-01-30 15:45:47,530 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-01-30 16:01:34,407 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (75ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var2 sysname;
+SELECT @var2 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[tbl_Students]') AND [c].[name] = N'Address');
+IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [tbl_Students] DROP CONSTRAINT [' + @var2 + '];');
+ALTER TABLE [tbl_Students] ALTER COLUMN [Address] nvarchar(500) NULL;
+2025-01-30 16:01:34,447 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20250130101536_AddDataToStudentsTable', N'9.0.1');
-2025-01-30 15:45:47,614 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+VALUES (N'20250130103120_modifytblStudentsSchema', N'9.0.1');
+2025-01-30 16:01:34,547 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 DECLARE @result int;
 EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
 SELECT @result
