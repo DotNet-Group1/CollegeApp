@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CollegeApp.Data.Config;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollegeApp.Data
 {
@@ -11,32 +12,10 @@ namespace CollegeApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>().HasData(new List<Student>()
-            {
-                new Student
-                {
-                    Id = 1,
-                    StudentName = "John",
-                    Email = "jonh@gmail.com",
-                    Address = "Mumbai",
-                    DOB = new DateTime(2023, 12, 12)
-                },
-                new Student
-                {
-                    Id = 2,
-                    StudentName = "Amit",
-                    Email = "amit@gmail.com",
-                    Address = "Kolkata",
-                    DOB = new DateTime(2022, 11, 12)
-                }
-            });
-
-            modelBuilder.Entity<Student>(entity =>
-            {
-                entity.Property(n => n.StudentName).IsRequired().HasMaxLength(250);
-                entity.Property(n => n.Email).HasMaxLength(250);
-                entity.Property(n => n.Address).IsRequired(false).HasMaxLength(500);
-            });
+            //Table 1
+            modelBuilder.ApplyConfiguration(new StudentConfig());
+            //Table 2
+            //modelBuilder.ApplyConfiguration(new CourseConfig());
         }
 
     }
