@@ -1,9 +1,12 @@
-2025-01-29 13:46:11,572 [.NET TP Worker] INFO  CollegeApp.Controllers.DemoController - Log message from Information method
-2025-01-29 13:46:11,578 [.NET TP Worker] WARN  CollegeApp.Controllers.DemoController - Log message Warning method
-2025-01-29 13:46:11,580 [.NET TP Worker] ERROR CollegeApp.Controllers.DemoController - Log message from Error method
-2025-01-29 13:46:11,582 [.NET TP Worker] FATAL CollegeApp.Controllers.DemoController - Log message from Critical method
-2025-01-29 13:46:11,770 [.NET TP Worker] INFO  CollegeApp.Controllers.DemoController - Log message from Information method
-2025-01-29 13:46:11,774 [.NET TP Worker] WARN  CollegeApp.Controllers.DemoController - Log message Warning method
-2025-01-29 13:46:11,777 [.NET TP Worker] ERROR CollegeApp.Controllers.DemoController - Log message from Error method
-2025-01-29 13:46:11,802 [.NET TP Worker] FATAL CollegeApp.Controllers.DemoController - Log message from Critical method
-2025-01-29 13:46:11,983 [.NET TP Worker] INFO  CollegeApp.Controllers.DemoController - Log message from Information method
+2025-01-29 16:48:43,998 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
+2025-01-29 16:48:44,009 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
+2025-01-29 16:48:44,068 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-01-29 16:48:44,072 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-01-29 16:48:44,074 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-29 17:13:14,328 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (57ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2025-01-29 17:13:14,337 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-01-29 17:13:14,396 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result

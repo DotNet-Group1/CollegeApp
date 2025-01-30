@@ -1,4 +1,6 @@
+using CollegeApp.Data;
 using CollegeApp.MyLogging;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,7 +26,35 @@ builder.Services.AddScoped<IMyLogger, LogToServerMemory>();
 builder.Services.AddSingleton<IMyLogger, LogToServerMemory>();
 builder.Services.AddTransient<IMyLogger, LogToServerMemory>();
 
+var connectionString = builder.Configuration.GetConnectionString("MyConnection");
+
+// Configure database context
+builder.Services.AddDbContext<CollegeDBContext>(options =>
+    options.UseSqlServer(connectionString));
+
 var app = builder.Build();
+
+// Test Database Connection
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<CollegeDBContext>();
+    try
+    {
+        Console.WriteLine("Attempting to connect to database...");
+        if (dbContext.Database.CanConnect())
+        {
+            Console.WriteLine("Database connection successful!");
+        }
+        else
+        {
+            Console.WriteLine("Database connection failed!");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Connection error: {ex.Message}");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

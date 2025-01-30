@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Database/test-connection": {
+      "get": {
+        "tags": [
+          "Database"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Demo": {
       "get": {
         "tags": [

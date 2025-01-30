@@ -1,2 +1,17 @@
-2025-01-29 13:46:12,378 [.NET TP Worker] ERROR CollegeApp.Controllers.DemoController - Log message from Error method
-2025-01-29 13:46:12,382 [.NET TP Worker] FATAL CollegeApp.Controllers.DemoController - Log message from Critical method
+2025-01-29 17:13:14,773 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250129114105_InitialDBSetup'.
+2025-01-29 17:13:14,834 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [tbl_Students] (
+    [Id] int NOT NULL IDENTITY,
+    [StudentName] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [DOB] datetime2 NOT NULL,
+    CONSTRAINT [PK_tbl_Students] PRIMARY KEY ([Id])
+);
+2025-01-29 17:13:14,878 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (44ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250129114105_InitialDBSetup', N'9.0.1');
+2025-01-29 17:13:14,967 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (44ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
