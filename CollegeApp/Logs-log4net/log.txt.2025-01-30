@@ -1,0 +1,11 @@
+2025-01-30 18:36:15,983 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (73ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2025-01-30 18:36:16,402 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
+2025-01-30 18:36:16,404 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
+2025-01-30 18:36:16,500 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-01-30 18:36:16,528 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-01-30 18:36:16,530 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-30 18:36:21,881 [.NET TP Worker] INFO  CollegeApp.Controllers.StudentController - Get Student method started
+2025-01-30 18:36:22,446 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[StudentName], [t].[Address], [t].[Email], [t].[DOB]
+FROM [tbl_Students] AS [t]
