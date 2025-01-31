@@ -1,17 +1,12 @@
-2025-01-30 15:45:47,259 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (54ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-01-30 17:02:03,746 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (44ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (Size = 250), @p3='?' (Size = 250)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [tbl_Students] SET [Address] = @p0, [DOB] = @p1, [Email] = @p2, [StudentName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-01-30 18:16:27,085 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT 1
-2025-01-30 15:45:47,319 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
-2025-01-30 15:45:47,362 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (39ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT [MigrationId], [ProductVersion]
-FROM [__EFMigrationsHistory]
-ORDER BY [MigrationId];
-2025-01-30 15:45:47,376 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Applying migration '20250130101536_AddDataToStudentsTable'.
-2025-01-30 15:45:47,466 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (58ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DOB', N'Email', N'StudentName') AND [object_id] = OBJECT_ID(N'[tbl_Students]'))
-    SET IDENTITY_INSERT [tbl_Students] ON;
-INSERT INTO [tbl_Students] ([Id], [Address], [DOB], [Email], [StudentName])
-VALUES (1, N'Mumbai', '2023-12-12T00:00:00.0000000', N'jonh@gmail.com', N'John'),
-(2, N'Kolkata', '2022-11-12T00:00:00.0000000', N'amit@gmail.com', N'Amit');
-IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DOB', N'Email', N'StudentName') AND [object_id] = OBJECT_ID(N'[tbl_Students]'))
-    SET IDENTITY_INSERT [tbl_Students] OFF;
+2025-01-30 18:16:27,550 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
+2025-01-30 18:16:27,554 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
+2025-01-30 18:16:27,623 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-01-30 18:16:27,625 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development

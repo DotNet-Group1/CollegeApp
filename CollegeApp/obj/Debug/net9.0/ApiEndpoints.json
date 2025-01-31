@@ -22,13 +22,13 @@
   {
     "ContainingType": "CollegeApp.Controllers.StudentController",
     "Method": "GetStudentById",
-    "RelativePath": "api/Student/{id}",
+    "RelativePath": "api/Student/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -72,13 +72,13 @@
   {
     "ContainingType": "CollegeApp.Controllers.StudentController",
     "Method": "UpdateStudentPartial",
-    "RelativePath": "api/Student/{id}/UpdatePartial",
+    "RelativePath": "api/Student/{Id}/UpdatePartial",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       },
@@ -233,13 +233,13 @@
   {
     "ContainingType": "CollegeApp.Controllers.StudentController",
     "Method": "DeleteStudent",
-    "RelativePath": "api/Student/Delete/{id}",
+    "RelativePath": "api/Student/Delete/{Id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       }

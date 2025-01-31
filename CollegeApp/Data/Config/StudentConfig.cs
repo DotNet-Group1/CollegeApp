@@ -14,8 +14,8 @@ namespace CollegeApp.Data.Config
            builder.Property(n => n.StudentName).IsRequired().HasMaxLength(250);
            builder.Property(n => n.Email).HasMaxLength(250);
            builder.Property(n => n.Address).IsRequired(false).HasMaxLength(500);
-               
-           builder.HasData(new List<Student>()
+
+            builder.HasData(new List<Student>()
            {
                new Student
                {
@@ -48,6 +48,22 @@ namespace CollegeApp.Data.Config
                     Email = "abijit@gmail.com",
                     Address = "North 24 Parganas",
                     DOB = new DateTime(2015, 9, 08)
+                },
+               new Student
+                {
+                    Id = 5,
+                    StudentName = "Subho",
+                    Email = "subho@gmail.com",
+                    Address = "Burnpur",
+                    DOB = new DateTime  (2019, 8, 07)
+                },
+               new Student
+                {
+                    Id = 6,
+                    StudentName = "Abir",
+                    Email = "abir@gmail.com",
+                    Address = "Daimond Harber",
+                    DOB = new DateTime(2018, 7, 06)
                 }
            });
         }

@@ -8,7 +8,7 @@ namespace CollegeApp.Data
         public CollegeDBContext(DbContextOptions<CollegeDBContext> options) : base(options)
         {
         }
-        DbSet<Student> tbl_Students { get; set; }
+        public DbSet<Student> tbl_Students { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

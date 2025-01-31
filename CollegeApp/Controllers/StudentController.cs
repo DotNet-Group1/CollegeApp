@@ -1,8 +1,10 @@
-﻿using CollegeApp.Models;
+﻿using CollegeApp.Data;
+using CollegeApp.Models;
 using CollegeApp.MyLogging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace CollegeApp.Controllers
@@ -12,9 +14,11 @@ namespace CollegeApp.Controllers
     public class StudentController : ControllerBase
     {
         private readonly ILogger<StudentController> _logger;
-        public StudentController(ILogger<StudentController> logger)
+        private readonly CollegeDBContext _dbContext;
+        public StudentController(ILogger<StudentController> logger, CollegeDBContext dBContext)
         {
             _logger = logger;
+            _dbContext = dBContext;
         }
 
         [HttpGet]
@@ -39,13 +43,15 @@ namespace CollegeApp.Controllers
             //}
 
             _logger.LogInformation("Get Student method started");
-            var students = CollegeRepository.Students.Select(s => new StudentDTO()
+            var students = _dbContext.tbl_Students.Select(s => new StudentDTO()
             {
-                id = s.id,
+                Id = s.Id,
                 StudentName = s.StudentName,
                 Address = s.Address,
-                Email = s.Email
-            });
+                Email = s.Email,
+                DOB = s.DOB
+            }).ToList();
+            //var students = _dbContext.tbl_Students.ToList();
             return Ok(students);
         }
 
@@ -54,53 +60,55 @@ namespace CollegeApp.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Route("{id:int}", Name = "getStudentById")]
-        public ActionResult<StudentDTO> GetStudentById(int id)
+        [Route("{Id:int}", Name = "getStudentById")]
+        public ActionResult<StudentDTO> GetStudentById(int Id)
         {
             //BadRequest - 400 - BadRequest - Client error
-            if (id <= 0)
+            if (Id <= 0)
             {
                 _logger.LogWarning("BadRequest");
                 return BadRequest();
             }                
 
-            var student = CollegeRepository.Students.Where(n => n.id == id).FirstOrDefault();
+            var student = _dbContext.tbl_Students.Where(n => n.Id == Id).FirstOrDefault();
 
             //NotFound - 404 - NotFound - Client error
             if (student == null)
             {
                 _logger.LogError("Student not found with given id");
-                return NotFound($"The student with id {id} not found");
+                return NotFound($"The student with id {Id} not found");
             }
-            var studentDTO = new StudentDTO
+            var studentDTO = new Student
             {
-                id = student.id,
+                Id = student.Id,
                 StudentName = student.StudentName,
                 Address = student.Address,
-                Email = student.Email
+                Email = student.Email,
+                DOB = student.DOB
             };
             //OK - 200 - Success
             return Ok(studentDTO);
         }
 
-        [HttpDelete("Delete/{id}", Name = "deleteStudentById")]
+        [HttpDelete("Delete/{Id}", Name = "deleteStudentById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<bool> DeleteStudent(int id)
+        public ActionResult<bool> DeleteStudent(int Id)
         {
             //BadRequest - 400 - BadRequest - Client error
-            if (id <= 0)
+            if (Id <= 0)
                 return BadRequest();
 
-            var student = CollegeRepository.Students.Where(n => n.id == id).FirstOrDefault();
+            var student = _dbContext.tbl_Students.Where(n => n.Id == Id).FirstOrDefault();
 
             //NotFound - 404 - NotFound - Client error
             if (student == null)
-                return NotFound($"The student with id {id} not found");
+                return NotFound($"The student with id {Id} not found");
 
-            CollegeRepository.Students.Remove(student);
+            _dbContext.tbl_Students.Remove(student);
+            _dbContext.SaveChanges();
             //OK - 200 - Success 
             return Ok(true);
         }
@@ -116,7 +124,7 @@ namespace CollegeApp.Controllers
             if (string.IsNullOrEmpty(name))
                 return BadRequest();
 
-            var student = CollegeRepository.Students.Where(n => n.StudentName == name).FirstOrDefault();
+            var student = _dbContext.tbl_Students.Where(n => n.StudentName == name).FirstOrDefault();
 
             //NotFound - 404 - NotFound - Client error
             if (student == null)
@@ -124,10 +132,11 @@ namespace CollegeApp.Controllers
 
             var studentDTO = new StudentDTO
             {
-                id = student.id,
+                Id = student.Id,
                 StudentName = student.StudentName,
                 Address = student.Address,
-                Email = student.Email
+                Email = student.Email,
+                DOB = student.DOB
             };
             //OK - 200 - Success
             return Ok(studentDTO);
@@ -150,17 +159,18 @@ namespace CollegeApp.Controllers
             //    return BadRequest(ModelState);
             //}
 
-            int newId = CollegeRepository.Students.LastOrDefault().id + 1;
             Student student = new Student
             {
-                id = newId,
                 StudentName = model.StudentName,
                 Address = model.Address,
-                Email = model.Email
+                Email = model.Email,
+                DOB = model.DOB
             };
-            CollegeRepository.Students.Add(student);
-            model.id = student.id;
-            return CreatedAtRoute("getStudentById", new { model.id }, model);
+            _dbContext.tbl_Students.Add(student);
+            _dbContext.SaveChanges();
+
+            model.Id = student.Id;
+            return CreatedAtRoute("getStudentById", new { model.Id }, model);
         }
 
         [HttpPut]
@@ -174,39 +184,54 @@ namespace CollegeApp.Controllers
             if (!ModelState.IsValid || model == null)
                 return BadRequest(ModelState);
 
-            var student = CollegeRepository.Students.Where(n => n.id == model.id).FirstOrDefault();
+            var student = _dbContext.tbl_Students.AsNoTracking().Where(n => n.Id == model.Id).FirstOrDefault();
             
             if (student == null)
-                return NotFound($"The student with id {model.id} not found");
-            
-            student.StudentName = model.StudentName;
-            student.Address = model.Address;
-            student.Email = model.Email;
+                return NotFound($"The student with id {model.Id} not found");
+
+            var newRecord = new Student()
+            {
+                Id = model.Id,
+                StudentName = model.StudentName,
+                Email = model.Email,
+                Address = model.Address,
+                DOB = model.DOB
+            };
+            _dbContext.tbl_Students.Update(newRecord);
+
+            //student.StudentName = model.StudentName;
+            //student.Address = model.Address;
+            //student.Email = model.Email;
+            //student.DOB = model.DOB;
+
+            _dbContext.SaveChanges();
+
             return Ok(model);
         }
 
         [HttpPatch]
-        [Route("{id:int}/UpdatePartial")]
+        [Route("{Id:int}/UpdatePartial")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult UpdateStudentPartial(int id, [FromBody] JsonPatchDocument<StudentDTO> patchDocument)
+        public ActionResult UpdateStudentPartial(int Id, [FromBody] JsonPatchDocument<StudentDTO> patchDocument)
         {
-            if (!ModelState.IsValid || patchDocument == null || id <= 0)
+            if (!ModelState.IsValid || patchDocument == null || Id <= 0)
                 return BadRequest(ModelState);
 
-            var student = CollegeRepository.Students.Where(n => n.id == id).FirstOrDefault();
+            var student = _dbContext.tbl_Students.Where(n => n.Id == Id).FirstOrDefault();
 
             if (student == null)
-                return NotFound($"The student with id {id} not found");
+                return NotFound($"The student with id {Id} not found");
 
             var studentDTO = new StudentDTO
             {
-                id = student.id,
+                Id = student.Id,
                 StudentName = student.StudentName,
                 Address = student.Address,
-                Email = student.Email
+                Email = student.Email,
+                DOB = student.DOB
             };
             patchDocument.ApplyTo(studentDTO, ModelState);
             if (!ModelState.IsValid) 
@@ -215,6 +240,8 @@ namespace CollegeApp.Controllers
             student.StudentName = studentDTO.StudentName;
             student.Address = studentDTO.Address;
             student.Email = studentDTO.Email;
+            student.DOB = studentDTO.DOB;
+            _dbContext.SaveChanges();
 
             return NoContent();
         }

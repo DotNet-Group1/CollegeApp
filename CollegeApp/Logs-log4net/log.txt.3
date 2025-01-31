@@ -1,14 +1,11 @@
-2025-01-30 15:45:47,530 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20250130101536_AddDataToStudentsTable', N'9.0.1');
-2025-01-30 15:45:47,614 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-DECLARE @result int;
-EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
-SELECT @result
-2025-01-30 16:01:33,486 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (100ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-01-30 18:16:27,627 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-30 18:17:49,419 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (57ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT 1
-2025-01-30 16:01:33,499 [1] INFO  Microsoft.EntityFrameworkCore.Migrations - Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
-2025-01-30 16:01:33,578 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (77ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-DECLARE @result int;
-EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
-SELECT @result
+2025-01-30 18:17:49,584 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012
+2025-01-30 18:17:49,584 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
+2025-01-30 18:17:49,632 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-01-30 18:17:49,632 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-01-30 18:17:49,633 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-30 18:18:36,960 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (65ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2025-01-30 18:18:37,429 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7012

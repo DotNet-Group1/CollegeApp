@@ -1,17 +1,14 @@
-2025-01-30 16:01:33,783 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (75ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
-BEGIN
-    CREATE TABLE [__EFMigrationsHistory] (
-        [MigrationId] nvarchar(150) NOT NULL,
-        [ProductVersion] nvarchar(32) NOT NULL,
-        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
-    );
-END;
-2025-01-30 16:01:33,924 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT 1
-2025-01-30 16:01:33,966 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
-2025-01-30 16:01:34,012 [1] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT [MigrationId], [ProductVersion]
-FROM [__EFMigrationsHistory]
-ORDER BY [MigrationId];
+2025-01-30 18:18:37,431 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5021
+2025-01-30 18:18:37,511 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-01-30 18:18:37,514 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-01-30 18:18:37,516 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: D:\Web Api\CollegeApp-repo\CollegeApp
+2025-01-30 18:19:37,919 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (74ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Address], [t].[DOB], [t].[Email], [t].[StudentName]
+FROM [tbl_Students] AS [t]
+WHERE [t].[Id] = @__Id_0
+2025-01-30 18:19:38,081 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (49ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 250)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [tbl_Students] SET [StudentName] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;

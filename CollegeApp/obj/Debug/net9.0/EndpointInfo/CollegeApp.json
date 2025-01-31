@@ -68,7 +68,7 @@
         }
       }
     },
-    "/api/Student/{id}": {
+    "/api/Student/{Id}": {
       "get": {
         "tags": [
           "Student"
@@ -76,7 +76,7 @@
         "operationId": "getStudentById",
         "parameters": [
           {
-            "name": "id",
+            "name": "Id",
             "in": "path",
             "required": true,
             "schema": {
@@ -152,7 +152,7 @@
         }
       }
     },
-    "/api/Student/Delete/{id}": {
+    "/api/Student/Delete/{Id}": {
       "delete": {
         "tags": [
           "Student"
@@ -160,7 +160,7 @@
         "operationId": "deleteStudentById",
         "parameters": [
           {
-            "name": "id",
+            "name": "Id",
             "in": "path",
             "required": true,
             "schema": {
@@ -475,14 +475,14 @@
         }
       }
     },
-    "/api/Student/{id}/UpdatePartial": {
+    "/api/Student/{Id}/UpdatePartial": {
       "patch": {
         "tags": [
           "Student"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "Id",
             "in": "path",
             "required": true,
             "schema": {
@@ -668,7 +668,7 @@
             "minLength": 1,
             "type": "string"
           },
-          "admissionDate": {
+          "dob": {
             "type": "string",
             "format": "date-time"
           }
